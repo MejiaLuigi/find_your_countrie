@@ -20,6 +20,32 @@ const config = {
   },
   "staticDirs": [
     "..\\public"
-  ]
+  ],
+  webpackFinal: async (config) => {
+    // Configuración para manejar archivos CSS con PostCSS
+    config.module.rules.push({
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+          },
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              plugins: [
+                ['@tailwindcss/postcss', {}],
+              ],
+            },
+          },
+        },
+      ],
+    });
+    return config;
+  },
 };
 export default config;

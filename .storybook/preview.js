@@ -1,6 +1,6 @@
 import '../app/globals.css';
 
-/** @type { import('@storybook/nextjs-vite').Preview } */
+/** @type { import('@storybook/react').Preview } */
 const preview = {
   parameters: {
     controls: {
