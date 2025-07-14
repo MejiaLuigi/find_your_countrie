@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from 'next-themes';
 import '../app/lib/utils/fontawesome';
 import "./globals.css";
+import Providers from "./ui/components/Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,9 +25,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <ThemeProvider attribute="class">
+      <Providers attribute="class" defaultTheme="system" enableSystem className="bg-#fafafaff dark:bg-#202c37ff">
         {children}
-      </ThemeProvider>
+      </Providers>
       </body>
     </html>
   );

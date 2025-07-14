@@ -13,7 +13,7 @@ export default function Input({ value, onChange, placeholder, icon }) {
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="input-field"
+        className="input-field w-full h-full bg-transparent text-black dark:text-white outline-none"
       />
     </div>
   );
