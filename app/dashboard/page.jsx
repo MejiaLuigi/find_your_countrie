@@ -44,7 +44,7 @@ const formatNumber = (num) => {
 };
 
   const options = [
-    { value: "", label: "All Regions" }
+    { value: "", label: "Filter by Region" }
   ];
   const regions = [...new Set(countries.map(country => country.region))];
   regions.forEach(region => {
@@ -65,8 +65,8 @@ const searchCountriesByName = (e) => {
 }
 
   return (
-    <div className="px-5 flex flex-col justify-space-around border border-blue-500">
-      <div className="flex flex-wrap items-center justify-between md:items-center md:justify-between mb-10">
+    <div className="flex flex-col justify-space-around border border-blue-500">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 mb-10 px-5">
         <div className="mb-5 md:mb-0">
           <Input placeholder="Search for a country..." icon={faMagnifyingGlass} onChange={searchCountriesByName} value={searchCountrie}/>
         </div>
@@ -74,7 +74,7 @@ const searchCountriesByName = (e) => {
           <SelectInput options={options} onChange={handleRegionChange} value={selectedRegion}/>
         </div>
       </div>
-      <div className=" flex flex-wrap flex-row items-center justify-between text-center md: flex justify-center items-center">
+      <div className=" flex flex-wrap justify-center gap-1">
         {countries.map((country) => (
           <Card
             key={country.name?.common || index}

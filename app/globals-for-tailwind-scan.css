@@ -1,0 +1,8 @@
+/* Forzar a Tailwind a reconocer estas clases */
+.bg-base-light {}
+.bg-base-dark {}
+.text-text-light {}
+.text-text-dark {}
+.bg-element-light {}
+.bg-element-dark {}
+.text-muted {}

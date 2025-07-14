@@ -5,7 +5,7 @@ import Header from "../ui/header/Header";
 export default function Layout({ children }) {
   return (
     <>
-    <div className="w-full bg-white text-#111517ff shadow-md dark:bg-#202c37ff dark:text-#fafafaff">
+    <div className="w-full bg-element-light text-text-light dark:bg-element-dark dark:text-text-dark shadow-md">
         <div className="max-w-screen  py-[1rem] px-[2rem]">
             <Header/>
         </div>
