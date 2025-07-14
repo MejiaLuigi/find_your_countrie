@@ -1,9 +1,17 @@
 "use client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Button({ label, onClick, className="" }) {
+export default function Button({ label, onClick, className="", icon }) {
   return (
     <button onClick={onClick} className={className}>
-      {label}
+      {icon ? (
+        <>
+          <FontAwesomeIcon icon={icon} className="text-white mx-3" />
+          {label}
+        </>
+      ) : (
+        <p>{label}</p>
+      )}
     </button>
   );
 }
