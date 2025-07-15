@@ -6,7 +6,7 @@ export default function Button({ label, onClick, className="", icon }) {
     <button onClick={onClick} className={className}>
       {icon ? (
         <>
-          <FontAwesomeIcon icon={icon} className="text-black mx-3" />
+          <FontAwesomeIcon icon={icon} className="text-text-light dark:text-text-dark mx-3" />
           {label}
         </>
       ) : (
