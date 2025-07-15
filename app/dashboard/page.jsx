@@ -64,9 +64,19 @@ const searchCountriesByName = (e) => {
   console.log("Search country:", searchCountrie);
 }
 
+const filteredCountries = countries.filter((country) => {
+  const matchesRegion =
+    selectedRegion === "" || country.region === selectedRegion;
+
+  const matchesSearch =
+    country.name.common.toLowerCase().includes(searchCountrie.toLowerCase());
+
+  return matchesRegion && matchesSearch;
+});
+
   return (
-    <div className="flex flex-col justify-space-around border border-blue-500">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 mb-10 px-5">
+    <div className="flex flex-col justify-space-around">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 mb-10 px-5 my-5">
         <div className="mb-5 md:mb-0">
           <Input placeholder="Search for a country..." icon={faMagnifyingGlass} onChange={searchCountriesByName} value={searchCountrie}/>
         </div>
@@ -75,7 +85,10 @@ const searchCountriesByName = (e) => {
         </div>
       </div>
       <div className=" flex flex-wrap justify-center gap-1">
-        {countries.map((country) => (
+      {filteredCountries.length === 0 ? (
+        <p className="text-center text-gray-600">No countries found</p>
+      ) : (
+        filteredCountries.map((country, index) => (
           <Card
             key={country.name?.common || index}
             imageUrl={country.flags.png}
@@ -84,7 +97,8 @@ const searchCountriesByName = (e) => {
             region={country.region}
             capital={country.capital ? country.capital[0] : "N/A"}
           />
-        ))}
+        ))
+      )}
       </div>
     </div>
   );
